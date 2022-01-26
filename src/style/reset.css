@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+/* 定义字体 */
+@font-face {
+  font-family: Futura-Book;
+  src: url(../assets/font/Futura-Bk-BT-Book.ttf);
+}
+@font-face {
+  font-family: Futura-Bold;
+  src: url(../assets/font/Futura-Md-BT-Bold.ttf.ttf);
+}
+@font-face {
+  font-family: Futura-Medium;
+  src: url(../assets/font/Futura-Md-BT-Medium.ttf);
+}
+
+.f-c{font-family: Futura-Book;}
+.f-b{font-family: Futura-Bold;}
+.f-m{font-family: Futura-Medium;}
+
 /* margin相关 */
 .mt-6{margin-top: 6px;}
 .mt-12{margin-top: 12px;}

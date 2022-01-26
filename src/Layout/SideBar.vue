@@ -1,7 +1,14 @@
 <script setup lang="ts">
   import { LINK_LIST } from './config/index';
+  import { ref } from 'vue';
+  
+  // 使用ref来定义响应式变量
+  let currentPath:any = ref('/home');
 
-  const linkList = [...LINK_LIST];
+  let chooseRoute = (path:string) => {
+    // ref语法使用 .value获取值
+    currentPath.value = path;
+  }
 
 </script>
 
@@ -9,7 +16,8 @@
   <div class="sidebar-container">
     <img class="head" src="../assets/image/head.png" />
     <div class="link-list">
-      <div class="link-item cu-pt mb-36" :class="{active: link.path == '/home'}" v-for="link in linkList" :key="link.path">
+      <div class="link-item cu-pt mb-36" :class="{active: link.path == currentPath}" 
+        v-for="link in LINK_LIST" :key="link.path" :title="link.name" @click="chooseRoute(link.path)">
         <i class="iconfont" :class="link.icon"></i>
       </div>
     </div>
@@ -24,6 +32,7 @@
     padding: 40px 12px;
     background-color: #c5d3f9;
     text-align: center;
+    overflow: hidden;
   }
   .sidebar-container .head{
     width: 48px;
@@ -52,7 +61,28 @@
     font-size: 18px;
   }
   .link-item.active{
+    position: relative;
     background-color: #51459e;
     color: #fff;
+  }
+  .link-item.active::before{
+    position: absolute;
+    content: '';
+    width: 120px;
+    height: 120px;
+    border-radius: 80px;
+    background-color: #f2f7ff;
+    top: -44px;
+    right: -133px;
+  }
+  .link-item.active::after{
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #51459e;
+    right: -27px;
+    top: 14px;
   }
 </style>
