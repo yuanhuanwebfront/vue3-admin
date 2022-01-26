@@ -9,7 +9,6 @@
     // ref语法使用 .value获取值
     currentPath.value = path;
   }
-
 </script>
 
 <template>
