@@ -1,13 +1,17 @@
 <script setup lang="ts">
   import { LINK_LIST } from './config/index';
   import { ref } from 'vue';
+  import { useRouter } from 'vue-router';
   
   // 使用ref来定义响应式变量
   let currentPath:any = ref('/home');
+  // 获取路由实例
+  const router = useRouter();
 
   let chooseRoute = (path:string) => {
     // ref语法使用 .value获取值
     currentPath.value = path;
+    router.push(path)
   }
 </script>
 

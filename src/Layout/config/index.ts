@@ -16,22 +16,22 @@ export const LINK_LIST:Array<LinkItem> = [
     icon: 'vd-wallet'
   },
   {
-    path: '/document',
+    path: '/Documents',
     name: '文档',
     icon: 'vd-document'
   },
   {
-    path: '/todo',
+    path: '/Todo',
     name: '代办',
     icon: 'vd-todo'
   },
   {
-    path: '/message',
+    path: '/Message',
     name: '消息',
     icon: 'vd-message'
   },
   {
-    path: '/profile',
+    path: '/Profile',
     name: '个人信息',
     icon: 'vd-profile'
   },
