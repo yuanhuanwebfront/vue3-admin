@@ -1,25 +1,33 @@
 <script setup lang="ts">
   import { LINK_LIST } from './config/index';
-  import { ref } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { ref, computed } from 'vue';
+  import { useRouter, useRoute } from 'vue-router';
   
-  // 使用ref来定义响应式变量
-  let currentPath:any = ref('/home');
   // 获取路由实例
   const router = useRouter();
+  const route = useRoute();
+
+  // computed使用
+  const cptCurpath = computed(() => {
+    return '/' + route.path.split('/')[1]
+  })
 
   let chooseRoute = (path:string) => {
     // ref语法使用 .value获取值
-    currentPath.value = path;
     router.push(path)
   }
+
+
+
+
+
 </script>
 
 <template>
   <div class="sidebar-container">
     <img class="head" src="../assets/image/head.png" />
     <div class="link-list">
-      <div class="link-item cu-pt mb-36" :class="{active: link.path == currentPath}" 
+      <div class="link-item cu-pt mb-36" :class="{active: link.path == cptCurpath}" 
         v-for="link in LINK_LIST" :key="link.path" :title="link.name" @click="chooseRoute(link.path)">
         <i class="iconfont" :class="link.icon"></i>
       </div>

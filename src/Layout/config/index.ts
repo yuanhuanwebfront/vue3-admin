@@ -6,12 +6,12 @@ interface LinkItem{
 
 export const LINK_LIST:Array<LinkItem> = [
   {
-    path: '/home',
+    path: '/Home',
     name: '首页',
     icon: 'vd-home'
   },
   {
-    path: '/wallet',
+    path: '/Wallet',
     name: '钱包',
     icon: 'vd-wallet'
   },
