@@ -8,7 +8,7 @@ const HomeRoute:Array<RouteRecordRaw> = [
     children: [
       {
         path: '/Home',
-        component: () => import('@/page/Home/index.vue')
+        component: () => import('@/page/Home/index/index.vue')
       }
     ]
   }

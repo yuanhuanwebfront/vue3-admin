@@ -22,19 +22,27 @@
 .f-b{font-family: Futura-Bold;}
 .f-m{font-family: Futura-Medium;}
 
+.f-12{font-size: 12px;}
 .f-18{font-size: 18px;}
+.f-20{font-size: 20px;}
 .f-24{font-size: 24px;}
 .f-36{font-size: 46px;}
 .f-42{font-size: 42px;}
+
+.f-gray{color: #a3a6ac;}
+
+.bold{font-weight: bold;}
 
 /* margin相关 */
 .mt-6{margin-top: 6px;}
 .mt-12{margin-top: 12px;}
 .mt-18{margin-top: 18px;}
-.mt-18{margin-top: 24px;}
+.mt-24{margin-top: 24px;}
+.mt-60{margin-top: 60px;}
 
 .mb-6{margin-bottom: 6px;}
 .mb-12{margin-bottom: 12px;}
+.mb-16{margin-bottom: 16px;}
 .mb-18{margin-bottom: 18px;}
 .mb-24{margin-bottom: 24px;}
 
@@ -47,6 +55,7 @@
 .mr-12{margin-right: 12px;}
 .mr-18{margin-right: 18px;}
 .mr-24{margin-right: 24px;}
+.mr-60{margin-right: 60px;}
 
 
 /* flex相关 */
