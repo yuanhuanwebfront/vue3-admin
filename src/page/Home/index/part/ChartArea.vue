@@ -1,34 +1,48 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue';
-  import { Chart } from '@antv/g2';
+  import * as echarts from 'echarts';
   import { lineChartData } from '@/mock/Home';
 
   // 定义ref
   const leftRef:object = ref(null);
 
   onMounted(() => {
-    
-    initChart(leftRef, {});
 
-  })
+    let myChart = echarts.init(document.getElementById('line'));
 
-
-  function initChart(domRef:any, options:object = {data: []}){
-    let dom:any = domRef.value,
-        id = dom.id,
-        width = dom.clientWidth,
-        height = dom.clientHeight;
-
-    const chart = new Chart({
-      container: id,
-      width,
-      height
+    myChart.setOption({
+      color: ['#51459e', '#84e8f4'],
+      tooltip: {},
+      xAxis: {
+        data: lineChartData.map(data => data.month)
+      },
+      grid: {
+        left: 50
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Today',
+          type: 'line',
+          smooth: true,
+          stack: 'total',
+          lineStyle: {width: 4},
+          data: lineChartData.map(data => data.Today)
+        },
+        {
+          name: 'Yesterday',
+          type: 'line',
+          stack: 'total',
+          smooth: true,
+          lineStyle: {width: 4},
+          data: lineChartData.map(data => data.Yesterday)
+        },
+      ]
     })
 
-    chart.source(options.data)
-    chart.interval().position('month*Today').color('z')
-    chart.render();
-  }
+  })
 
 </script>
 
@@ -37,9 +51,7 @@
     <p class="f-m f-20 bold">Daily Time Log Activity</p>
     <p class="mt-6 f-12 f-gray">Today vs Yesterday</p>
 
-    <div id="line" class="line-chart" ref="leftRef">
-
-    </div>
+    <div id="line" class="line-chart" ref="leftRef"></div>
 
 
   </div>
@@ -50,12 +62,15 @@
 </template>
 
 
-<style>
+<style scoped>
 .chart-left, .chart-right{
   height: 300px;
 }
 .chart-left{
   flex-grow: 1;
+}
+.line-chart{
+  height: 300px;
 }
 .chart-right{
   width: 240px;
