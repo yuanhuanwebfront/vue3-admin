@@ -12,3 +12,12 @@ export const lineChartData:Array<any> = [
   { month: 'Nov', Today: 500, Yesterday: 600},
   { month: 'Dec', Today: 300, Yesterday: 500},
 ]
+
+export const barChartData: Array<any> = [
+  {name: 'Oct', value: 12},
+  {name: 'Oct', value: 19},
+  {name: 'Oct', value: 24},
+  {name: 'Nov', value: 15},
+  {name: 'Nov', value: 17},
+  {name: 'Nov', value: 13}
+]
